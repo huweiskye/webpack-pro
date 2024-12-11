@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "nodenext",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "jsx": "react-jsx",
+        "outDir": "./dist",
+        "rootDir": "./src",
+        //"allowImportingTsExtensions": true,
+        "moduleResolution": "nodenext",
+        //"noEmit": false,
+        "resolveJsonModule": true,
+        
+    },
+    "include": ["src/**/*",  "src/hello/**/*"],
+    "exclude": ["node_modules"],
+}
