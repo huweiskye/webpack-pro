@@ -10,7 +10,7 @@
   "main": "index.js",
   "scripts": {
     "test1": "echo \"Error: no test specified\" && exit 1",
-    "build1": "webpack",
+    "build": "webpack",
     "dev1": "webpack-dev-server",
     "start": "webpack serve --open",
     "server": "node server/server.js",
