@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import { Button, Menu } from 'antd';
+import { Button, Menu, Input, Switch } from 'antd';
 import "./hello/world"
 import axios from 'axios';
 
@@ -15,6 +15,9 @@ const App: React.FC = () => {
     const [message, setMessage] = useState('');
     const [resData, setResData] = useState<any>();
     const [collapsed, setCollapsed] = useState<boolean>(false);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [status, setStatus] = useState<boolean>(false);
 
     const toggleCollapsed = useCallback(() => {
         setCollapsed((collapsed) => !collapsed);
@@ -38,9 +41,9 @@ const App: React.FC = () => {
     const handleClick = async () => {
         try {
             const response = await axios.post('http://localhost:3333/api/updateUsers', {
-                username: 'another_user222',
-                password: 'another_user222',
-                status: 'active'
+                username: username,
+                password: password,
+                status: status ? 'deActive' : 'active'
             });
             console.log('Data received from API:', response.data); // 打印返回的数据
             //setUsers(response.data);
@@ -48,6 +51,10 @@ const App: React.FC = () => {
             console.error('Error fetching users:', error);
         }
     };
+
+    console.log('-----------username-------11111111111111111---------', username)
+    console.log('-----------password-------22222222222222222---------', password)
+    console.log('-----------status-------3333333333333333333---------', status)
 
     ///api/users
 
@@ -121,8 +128,11 @@ const App: React.FC = () => {
     return <div style={{ width: 256, padding: 16, background: '#f4f6f7' }}>
         <h2 onClick={() => handleClick()}>{t('welcome')}</h2>
         <h6>{resData?.userId}</h6>
-    <Menu mode="inline" items={items} inlineCollapsed={collapsed} style={{height: '100%'}}/>
-</div>
+        <Input placeholder="username" value={username} onChange={e => setUsername(e.target.value)} />
+        <Input placeholder="password" value={password} onChange={e => setPassword(e.target.value)} />
+        <Switch value={status} onChange={checked => setStatus(checked)}/>
+        <Menu mode="inline" items={items} inlineCollapsed={collapsed} style={{height: '100%'}}/>
+     </div>
 }
 
 export default App
