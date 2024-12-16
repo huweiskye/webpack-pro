@@ -19,6 +19,8 @@ const App: React.FC = () => {
     const toggleCollapsed = useCallback(() => {
         setCollapsed((collapsed) => !collapsed);
     }, []);
+
+    console.log('-----------message-------999999999999999---------', message)
     
 
     // const handleClick = async () => {
