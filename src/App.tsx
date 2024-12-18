@@ -126,6 +126,7 @@ const App: React.FC = () => {
 
 
     return <div style={{ width: 256, padding: 16, background: '#f4f6f7' }}>
+        <h1>{'Hello Hu Wei'}</h1>
         <h2 onClick={() => handleClick()}>{t('welcome')}</h2>
         <h6>{resData?.userId}</h6>
         <Input placeholder="username" value={username} onChange={e => setUsername(e.target.value)} />
